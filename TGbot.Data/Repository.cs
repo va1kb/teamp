@@ -112,14 +112,18 @@ namespace TGbot
                                     await Bot.SendTextMessageAsync(msg.Chat.Id, 
                                     $"note {++noteCount}:\nDate: {it.CreationDate}"); 
                                     await Bot.SendPhotoAsync(msg.Chat.Id, new FileToSend(it.Img)); 
-                                   } 
-                  
-                        }
-                }
-                catch (Exception e)
-                {
+                                  
+                                }
+                            catch (Exception e)
+                                {
+                                    Console.WriteLine(e.Message);
+                                }
+                         }
+                 }
+             catch (Exception e)
+                    {
                     Console.WriteLine(e.Message);
-                }
+                    }
             }
         }
 
