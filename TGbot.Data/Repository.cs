@@ -177,7 +177,7 @@ namespace TGbot
                     case "/info":
                         st = States.None;
                         await Bot.SendTextMessageAsync(msg.Chat.Id,
-                            "Команды:\n/createnote - создать заметки\n/createremind - создать напоминание\n/createimagenote - создать заметку-изображение\n/notes - вывести все заметки\n/reminds - вывести все запланированные напоминания\n/imagenotes - вывести все заметки-изображения");
+                            "Команды:\n/createnote - создать заметки\n/createremind - создать напоминание\n/imagenote - создать заметку-изображение\n/notes - вывести все заметки\n/reminds - вывести все запланированные напоминания\n/imagenotes - вывести все заметки-изображения");
                         break;
                     case "/start":
                         st = States.None;
