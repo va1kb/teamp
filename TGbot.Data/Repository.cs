@@ -73,7 +73,7 @@ namespace TGbot
                     var note = db.Note.Create();
                     //достаем из базы юзера по его телеграм айди
                     var user = db.Users.Include(s => s.notes).FirstOrDefault(x => x.UserId == msg.From.Id);
-                    //запихиваем весь контент в ноут
+                    // весь контент в ноут
                     note.CreationDate = DateTime.Now;
                     note.userID = msg.From.Id;
                     note.Text = "";
@@ -81,7 +81,7 @@ namespace TGbot
                     //изменяем последнее действие юзера
                     user.state = 0;
 
-                    //пихаем ноут к юзеру
+                    //ноут к юзеру
                     user.notes.Add(note);
                     await db.SaveChangesAsync();
                 }
@@ -107,8 +107,13 @@ namespace TGbot
                         //проверка на то что есть картинка
                         if (it.Img.Length > 0)
                         {
-                            await Bot.SendTextMessageAsync(msg.Chat.Id, $"note {++noteCount}:\nDate: {it.CreationDate}");
-                            await Bot.SendPhotoAsync(msg.Chat.Id, new FileToSend(it.Img));
+                            try 
+                                { 
+                                    await Bot.SendTextMessageAsync(msg.Chat.Id, 
+                                    $"note {++noteCount}:\nDate: {it.CreationDate}"); 
+                                    await Bot.SendPhotoAsync(msg.Chat.Id, new FileToSend(it.Img)); 
+                                   } 
+                  
                         }
                 }
                 catch (Exception e)
