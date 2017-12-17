@@ -11,10 +11,7 @@ namespace TGbot.DB_model
 {
     public class User
     {
-        //Короче, тут просто показывается EF какие есть таблицы
-        //В коде в юзера пихаются notes
-        //Храним userid, заметки/напоминания...
-        //Конец
+        //Храним userid, заметки/напоминания
 
 
         public int Id { get; set; }
